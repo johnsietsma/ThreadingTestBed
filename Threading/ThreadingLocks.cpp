@@ -19,8 +19,7 @@ class Counter
 {
 public:
 	int GetCount() const { 
-		  return count;
-		  //return atomicCount;
+		  return count > 0 ? count : atomicCount;
 	}
 
 	void Increment() {
