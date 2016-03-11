@@ -86,7 +86,15 @@ void RunThreadingLocks() {
 	}
 
 	// Check the result
-	std::cout << "Counter: " << counter.GetCount() << std::endl;
-	assert(counter.GetCount() == NUM_THREADS*NUMBER_OF_INCREMENTS);
+    const int expectedResult = NUM_THREADS*NUMBER_OF_INCREMENTS;
+	std::cout << "Counter: " << counter.GetCount() << " expected: " << expectedResult << std::endl;
+    if (expectedResult != counter.GetCount())
+    {
+        std::cout << "NOT THREAD SAFE" << std::endl;
+    }
+    else
+    {
+        std::cout << "Thread safe" << std::endl;
+    }
 }
 
